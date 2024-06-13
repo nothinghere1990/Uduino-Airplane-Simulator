@@ -7,8 +7,10 @@ public class ADXL345_Test : MonoBehaviour
     public float ax;
     public float ay;
     public float az;
-
-
+    public volatile float stickX;
+    public volatile float stickY;
+    public volatile float stickBtn;
+    
     void Start()
     {
         UduinoManager.Instance.OnValueReceived += OnValueReceived;
@@ -21,5 +23,9 @@ public class ADXL345_Test : MonoBehaviour
         ax = float.Parse(values[0]);
         ay = float.Parse(values[1]);
         az = float.Parse(values[2]);
+
+        stickX = float.Parse(values[3]) - 508;
+        stickY = float.Parse(values[4]) - 508;
+        stickBtn = float.Parse(values[5]);
     }
 }

@@ -30,6 +30,9 @@
 
 Uduino uduino("ADXL345Test");
 
+volatile int stickX = 0;
+volatile int stickY = 0;
+volatile int stickBtn = 0;
 
 ADXL345 adxl; //variable adxl is an instance of the ADXL345 library
 
@@ -99,11 +102,22 @@ void loop() {
     ax = xyz[0];
     ay = xyz[1];
     az = xyz[2];
+
+    stickX = analogRead(A0);
+    stickY = analogRead(A1);
+    stickBtn = digitalRead(7);
+    
     uduino.print(ax);
     uduino.print(" ");
     uduino.print(ay);
     uduino.print(" ");
     uduino.print(az);
+    uduino.print(" ");
+    uduino.print(stickX);
+    uduino.print(" ");
+    uduino.print(stickY);
+    uduino.print(" ");
+    uduino.print(stickBtn);
     uduino.println(" ");
   }
 }

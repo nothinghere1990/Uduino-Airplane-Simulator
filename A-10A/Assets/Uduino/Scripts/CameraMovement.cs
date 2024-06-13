@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public class DynamicCameraFollow : MonoBehaviour
 {
     public GameObject targetObject;  // 3D物件
