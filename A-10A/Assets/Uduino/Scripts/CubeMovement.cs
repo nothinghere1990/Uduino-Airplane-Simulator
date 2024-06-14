@@ -18,7 +18,7 @@ public class CubeMovement : MonoBehaviour
     void FixedUpdate()
     {
         speed = adxl345Test.stickX;
-        rotateY = adxl345Test.stickY / 1000;
+        rotateY = adxl345Test.stickY / 2000;
         
         rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Force);
 
